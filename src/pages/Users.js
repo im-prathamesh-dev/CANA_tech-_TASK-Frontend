@@ -29,6 +29,7 @@ const Users = () => {
   const fetchUsers = async () => {
     try {
       const response = await userService.getAll();
+      console.log(response.data.data);
       setUsers(response.data.data);
     } catch (error) {
       toast.error('Failed to load users');

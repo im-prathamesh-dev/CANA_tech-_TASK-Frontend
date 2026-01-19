@@ -19,6 +19,7 @@ const Login = () => {
   const onSubmit = async (data) => {
     setLoading(true);
     try {
+      console.log(data);
       await login(data.email, data.password);
       toast.success('Login successful!');
       navigate('/');

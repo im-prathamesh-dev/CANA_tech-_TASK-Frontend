@@ -20,6 +20,7 @@ const Clients = () => {
   const fetchClients = async () => {
     try {
       const response = await clientService.getAll();
+      console.log(response.data.data);
       setClients(response.data.data);
     } catch (error) {
       toast.error('Failed to load clients');

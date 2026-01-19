@@ -5,6 +5,9 @@ import { clientService } from '../services/client.service';
 import { userService } from '../services/user.service';
 import toast from 'react-hot-toast';
 import './Dashboard.css';
+import { Users as UsersIcon } from 'lucide-react';
+import { BarChart as BarChartIcon } from 'lucide-react';
+import { CheckCircle as CheckCircleIcon } from 'lucide-react';
 
 const Dashboard = () => {
   const { user } = useAuth();
@@ -28,7 +31,8 @@ const Dashboard = () => {
 
       const clients = clientsRes.data.data;
       const activeClients = clients.filter((c) => c.status === 'active').length;
-
+      console.log(clients);
+      console.log(usersRes.data.data)
       setStats({
         totalClients: clients.length,
         activeClients,
@@ -57,7 +61,7 @@ const Dashboard = () => {
 
         <div className="stats-grid">
           <div className="stat-card">
-            <div className="stat-icon stat-icon-blue">📊</div>
+            <div className="stat-icon stat-icon-blue"><BarChartIcon size={24} /></div>
             <div className="stat-content">
               <h3 className="stat-value">{stats.totalClients}</h3>
               <p className="stat-label">Total Clients</p>
@@ -65,7 +69,7 @@ const Dashboard = () => {
           </div>
 
           <div className="stat-card">
-            <div className="stat-icon stat-icon-green">✓</div>
+            <div className="stat-icon stat-icon-green"><CheckCircleIcon size={24} /></div>
             <div className="stat-content">
               <h3 className="stat-value">{stats.activeClients}</h3>
               <p className="stat-label">Active Clients</p>
@@ -74,7 +78,7 @@ const Dashboard = () => {
 
           {user?.role === 'admin' && (
             <div className="stat-card">
-              <div className="stat-icon stat-icon-purple">👥</div>
+              <div className="stat-icon stat-icon-purple"><UsersIcon size={24} /></div>
               <div className="stat-content">
                 <h3 className="stat-value">{stats.totalUsers}</h3>
                 <p className="stat-label">Total Users</p>

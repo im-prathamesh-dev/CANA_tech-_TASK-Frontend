@@ -30,6 +30,7 @@ const ClientForm = () => {
   const fetchClient = async () => {
     try {
       const response = await clientService.getById(id);
+      console.log(response.data.data);
       reset(response.data.data);
     } catch (error) {
       toast.error('Failed to load client');
