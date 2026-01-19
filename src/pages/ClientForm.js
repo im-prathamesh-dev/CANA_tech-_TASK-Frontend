@@ -19,6 +19,7 @@ const ClientForm = () => {
     formState: { errors },
     reset,
   } = useForm();
+/* eslint-disable react-hooks/exhaustive-deps */
 
   useEffect(() => {
     if (isEditMode) {
